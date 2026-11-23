@@ -7,9 +7,10 @@ export const dynamic = "force-dynamic";
 export const maxDuration = 60;
 
 /**
- * Scheduled refresh (Instructions §22). Wire up in vercel.json:
- *   { "crons": [{ "path": "/api/cron/sync", "schedule": "*\/15 * * * *" }] }
- * Vercel calls this with `Authorization: Bearer $CRON_SECRET`.
+ * Scheduled refresh (Instructions §22). Triggered by a Supabase pg_cron job
+ * (see supabase/migrations) rather than vercel.json, since Vercel's Hobby
+ * plan only permits once-daily crons. Called with `Authorization: Bearer
+ * $CRON_SECRET`.
  */
 export async function GET(req: NextRequest) {
   const secret = process.env.CRON_SECRET;

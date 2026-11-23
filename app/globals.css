@@ -2,59 +2,117 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Forge design tokens.
+ *
+ * Colour communicates status / priority / action / hierarchy. The bulk of the
+ * interface stays neutral slate; indigo is used sparingly for primary actions
+ * and selection. Dark mode is a first-class deep-slate theme, not an inversion.
+ */
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    --background: 210 40% 98%; /* #F8FAFC */
+    --foreground: 222 47% 11%; /* #0F172A */
+
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    --card-foreground: 222 47% 11%;
+
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 243 75% 59%; /* Indigo #4F46E5 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 28% 95%;
+    --secondary-foreground: 215 25% 27%; /* Slate #334155 */
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%; /* #64748B */
+
+    --accent: 215 28% 95%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 347 77% 50%; /* Rose #E11D48 */
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 160 84% 39%; /* Emerald #10B981 */
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%; /* Amber #F59E0B */
+    --warning-foreground: 222 47% 11%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 243 75% 59%;
+
+    --hover: 215 28% 95%;
+    --selected: 243 75% 96%;
+
+    --chart-1: 243 75% 59%;
+    --chart-2: 160 84% 39%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 347 77% 50%;
+    --chart-5: 215 20% 55%;
+
+    --sidebar-background: 210 40% 97%;
+    --sidebar-foreground: 215 20% 35%;
+    --sidebar-accent: 243 75% 96%;
+    --sidebar-accent-foreground: 243 75% 40%;
+    --sidebar-border: 214 32% 91%;
+
     --radius: 0.5rem;
   }
+
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --background: 222 47% 11%; /* #0F172A */
+    --foreground: 210 40% 96%;
+
+    --card: 222 44% 13%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 44% 13%;
+    --popover-foreground: 210 40% 96%;
+
+    --primary: 243 75% 66%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 210 40% 96%;
+
+    --muted: 217 33% 16%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 19%;
+    --accent-foreground: 210 40% 96%;
+
+    --destructive: 347 70% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 160 60% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 84% 56%;
+    --warning-foreground: 222 47% 11%;
+
+    --border: 217 33% 21%;
+    --input: 217 33% 23%;
+    --ring: 243 75% 66%;
+
+    --hover: 217 33% 17%;
+    --selected: 243 55% 22%;
+
+    --chart-1: 243 75% 70%;
+    --chart-2: 160 60% 50%;
+    --chart-3: 38 84% 60%;
+    --chart-4: 347 70% 62%;
+    --chart-5: 215 25% 62%;
+
+    --sidebar-background: 222 47% 10%;
+    --sidebar-foreground: 215 20% 62%;
+    --sidebar-accent: 243 45% 20%;
+    --sidebar-accent-foreground: 243 75% 82%;
+    --sidebar-border: 217 33% 18%;
   }
 }
 
@@ -62,7 +120,73 @@
   * {
     @apply border-border;
   }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+    font-variation-settings: normal;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    @apply bg-primary/20;
+  }
+
+  /* Thin, unobtrusive scrollbars that match the theme. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--border));
+    border-radius: 9999px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--muted-foreground) / 0.5);
+  }
+}
+
+@layer components {
+  /* Keyboard hint pill used in the command menu and tooltips. */
+  .kbd {
+    @apply inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded
+      border border-border bg-muted px-1 font-mono text-[11px] font-medium
+      text-muted-foreground;
+  }
+
+  /* Subtle grid texture for empty states / marketing, drawn from tokens. */
+  .forge-grid {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.6) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.6) 1px, transparent 1px);
+    background-size: 32px 32px;
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+}
+
+@layer utilities {
+  .animate-in-fast {
+    animation: forge-fade-in 120ms ease-out;
+  }
+  @keyframes forge-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(2px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
